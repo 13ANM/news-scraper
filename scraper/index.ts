@@ -9,10 +9,17 @@ interface NewsItem {
   source: string
 }
 
+const REACT_NEWS_URL = import.meta.env.REACT_NEWS_URL as string
+const TAILWIND_NEWS_URL = import.meta.env.TAILWIND_NEWS_URL as string
+
+if (!REACT_NEWS_URL || !TAILWIND_NEWS_URL) {
+  throw new Error('Missing required environment variables')
+}
+
 const SCRAPED_DATA_PATH = path.resolve(process.cwd(), 'scraped-data.json')
 
 async function scrapeReactNews(): Promise<NewsItem[]> {
-  const url = 'https://react.dev/blog'
+  const url = REACT_NEWS_URL
 
   const { data } = await axios.get(url)
 
@@ -36,7 +43,7 @@ async function scrapeReactNews(): Promise<NewsItem[]> {
 }
 
 async function scrapeTailwindNews(): Promise<NewsItem[]> {
-  const url = 'https://blog.tailwindcss.com/'
+  const url = TAILWIND_NEWS_URL
 
   const { data } = await axios.get(url)
 
