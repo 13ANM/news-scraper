@@ -9,6 +9,10 @@ jobs:
     env:
       REACT_NEWS_URL: ${{ secrets.REACT_NEWS_URL }}
       TAILWIND_NEWS_URL: ${{ secrets.TAILWIND_NEWS_URL }}
+      REACT_SELECTOR: ${{ secrets.REACT_SELECTOR }}
+      TAILWIND_SELECTOR: ${{ secrets.TAILWIND_SELECTOR }}
+      REACT_SOURCE: ${{ secrets.REACT_SOURCE }}
+      TAILWIND_SOURCE: ${{ secrets.TAILWIND_SOURCE }}
 
     steps:
       - name: Checkout repository
