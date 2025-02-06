@@ -6,6 +6,9 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    env:
+      REACT_NEWS_URL: ${{ secrets.REACT_NEWS_URL }}
+      TAILWIND_NEWS_URL: ${{ secrets.TAILWIND_NEWS_URL }}
 
     steps:
       - name: Checkout repository
